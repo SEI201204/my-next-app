@@ -26,12 +26,12 @@ export default function RegisterPage() {
               href="/login"
               className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700"
             >
-              <span className="text-xl"></span> Back
+              <span className="text-xl">โ</span> Back
             </Link>
 
             <div className="mt-6 mb-8">
               <h1 className="text-3xl font-bold text-slate-900">Account Signup</h1>
-              <p className="mt-2 text-sm text-slate-500">สร้างบัญชีใหม่เพื่อเข้าถึงระบบ</p>
+              <p className="mt-2 text-sm text-slate-500">Create your free account to continue.</p>
             </div>
 
             <form className="space-y-4">
@@ -68,10 +68,10 @@ export default function RegisterPage() {
                     id="password"
                     name="password"
                     type="password"
-                    placeholder="••••••••"
+                    placeholder="Enter password"
                     className="mt-1 h-11 w-full rounded-md border border-slate-300 px-3 text-sm shadow-sm outline-none ring-sky-500/40 transition focus:border-sky-500 focus:ring"
                   />
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">??</span>
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">๐”’</span>
                 </div>
               </div>
               <button

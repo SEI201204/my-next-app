@@ -4,8 +4,8 @@ import LoginImage from "@/assets/images/Login.png";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <main className="mx-auto flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-slate-200 shadow-xl md:flex-row md:h-screen">
+    <div className="min-h-screen w-full bg-white text-slate-900">
+      <main className="flex h-screen w-full flex-col overflow-hidden bg-white md:flex-row">
         <section className="hidden w-full items-center justify-center bg-sky-500 p-6 md:flex md:w-1/2">
           <div className="h-[280px] w-full max-w-[320px] rounded-full bg-white p-6 shadow-inner md:h-[360px] md:max-w-[360px]">
             <Image

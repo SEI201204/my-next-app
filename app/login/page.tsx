@@ -1,19 +1,19 @@
+import Image from "next/image";
+import Link from "next/link";
+import LoginImage from "@/assets/images/Login.png";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <main className="mx-auto flex h-screen max-w-6xl overflow-hidden rounded-xl border border-slate-200 shadow-xl">
-        <section className="flex w-1/2 items-center justify-center bg-sky-500 p-10 sm:hidden md:flex">
-          <div className="h-[360px] w-[360px] rounded-full bg-slate-200 p-6 shadow-inner">
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-slate-200">
-              <div className="relative h-72 w-72 rounded-full bg-slate-200">
-                <div className="absolute left-6 top-10 h-20 w-10 rotate-[-16deg] rounded-xl border-4 border-black bg-transparent"></div>
-                <div className="absolute right-10 top-10 h-24 w-12 rotate-[-6deg] rounded-xl border-4 border-black bg-transparent"></div>
-                <div className="absolute left-12 top-28 h-4 w-28 rounded-full border-4 border-black bg-transparent"></div>
-                <div className="absolute left-16 top-36 h-10 w-24 rounded-full border-4 border-black bg-transparent"></div>
-                <div className="absolute bottom-12 left-20 h-10 w-18 rounded-full border-4 border-black bg-transparent"></div>
-                <div className="absolute bottom-20 left-6 h-8 w-24 rounded-full border-4 border-black bg-transparent"></div>
-              </div>
-            </div>
+        <section className="hidden w-1/2 items-center justify-center bg-sky-500 p-10 md:flex">
+          <div className="h-[360px] w-[360px] rounded-full bg-white p-6 shadow-inner">
+            <Image
+              src={LoginImage}
+              alt="Login"
+              className="h-full w-full rounded-full object-cover"
+              priority
+            />
           </div>
         </section>
 
@@ -56,7 +56,7 @@ export default function Home() {
               </button>
             </form>
             <p className="mt-6 text-center text-sm text-slate-500">
-              Dont have an account ? <a href="#" className="font-medium text-sky-600">Sign up here</a>
+              Dont have an account ? <Link href="/register" className="font-medium text-sky-600">Sign up here</Link>
             </p>
           </div>
         </section>

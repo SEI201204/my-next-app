@@ -1,22 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
+import RegisterImage from "@/assets/images/register.png";
 
 export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <main className="mx-auto flex h-screen max-w-6xl overflow-hidden rounded-xl border border-slate-200 shadow-xl">
         <section className="hidden w-1/2 items-center justify-center bg-sky-500 p-10 md:flex">
-          <div className="h-[360px] w-[360px] rounded-full bg-slate-200 p-6 shadow-inner">
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-slate-200">
-              <div className="relative h-72 w-72 rounded-full bg-slate-200">
-                <div className="absolute left-10 top-14 h-20 w-10 rounded-lg border-4 border-black"></div>
-                <div className="absolute left-[90px] top-10 h-24 w-16 rounded-lg border-4 border-black"></div>
-                <div className="absolute right-12 top-16 h-24 w-14 rounded-lg border-4 border-black"></div>
-                <div className="absolute left-24 top-40 h-20 w-20 rounded-full border-4 border-black"></div>
-                <div className="absolute left-40 top-34 h-12 w-12 rounded-full border-4 border-black"></div>
-              </div>
-            </div>
+          <div className="h-[360px] w-[360px] rounded-full bg-white p-6 shadow-inner">
+            <Image
+              src={RegisterImage}
+              alt="Register"
+              className="h-full w-full rounded-full object-cover"
+              priority
+            />
           </div>
         </section>
 

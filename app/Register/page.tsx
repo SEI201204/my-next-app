@@ -7,9 +7,9 @@ import RegisterImage from "@/assets/images/register.png";
 export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <main className="mx-auto flex h-screen max-w-6xl overflow-hidden rounded-xl border border-slate-200 shadow-xl">
-        <section className="hidden w-1/2 items-center justify-center bg-sky-500 p-10 md:flex">
-          <div className="h-[360px] w-[360px] rounded-full bg-white p-6 shadow-inner">
+      <main className="mx-auto flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-slate-200 shadow-xl md:flex-row md:h-screen">
+        <section className="hidden w-full items-center justify-center bg-sky-500 p-6 md:flex md:w-1/2">
+          <div className="h-[280px] w-full max-w-[320px] rounded-full bg-white p-6 shadow-inner md:h-[360px] md:max-w-[360px]">
             <Image
               src={RegisterImage}
               alt="Register"

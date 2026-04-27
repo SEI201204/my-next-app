@@ -1,8 +1,23 @@
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FormEvent } from "react";
 import LoginImage from "@/assets/images/Login.png";
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleLogin = (e: FormEvent) => {
+    e.preventDefault();
+    router.push("/home");
+  };
+
+  const handleSignUp = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.push("/register");
+  };
+
   return (
     <div className="min-h-screen w-full bg-white text-slate-900">
       <main className="flex h-screen w-full flex-col overflow-hidden bg-white md:flex-row">
@@ -23,7 +38,7 @@ export default function Home() {
               <h1 className="text-3xl font-bold text-slate-900">Account Login</h1>
               <p className="mt-2 text-sm text-slate-500">เข้าสู่ระบบเพื่อจัดการบัญชีของคุณ</p>
             </div>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleLogin}>
               <div>
                 <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-700">
                   Email address
@@ -56,7 +71,14 @@ export default function Home() {
               </button>
             </form>
             <p className="mt-6 text-center text-sm text-slate-500">
-              Dont have an account ? <Link href="/register" className="font-medium text-sky-600">Sign up here</Link>
+              Dont have an account ?{' '}
+              <a
+                href="/register"
+                className="font-medium text-sky-600 cursor-pointer"
+                onClick={handleSignUp}
+              >
+                Sign up here
+              </a>
             </p>
           </div>
         </section>

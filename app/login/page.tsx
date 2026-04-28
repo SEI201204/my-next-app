@@ -72,7 +72,6 @@ export default function Home() {
             <p className="mt-6 text-center text-sm text-slate-500">
               Dont have an account ?{' '}
               <a
-                href="/register"
                 className="font-medium text-sky-600 cursor-pointer"
                 onClick={handleSignUp}
               >

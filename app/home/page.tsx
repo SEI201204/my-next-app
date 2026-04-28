@@ -48,9 +48,9 @@ export default function HomePage() {
         <div className="grid grid-cols-2 gap-8 max-w-3xl w-full">
           {/* Card 1 */}
           <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <span className="text-xl font-semibold mb-4">ปริมาณขยะของวันนี้</span>
+            <span className="text-xl font-semibold text-slate-800 mb-4">ปริมาณขยะของวันนี้</span>
             <div className="flex items-center justify-center w-32 h-32 rounded-full border-2 border-gray-300 mb-4">
-              <span className="text-4xl font-bold">50</span>
+              <span className="text-4xl font-bold text-slate-900">50</span>
             </div>
             <Image src={LoginImage} alt="login" width={60} height={60} className="rounded-full" />
           </div>
@@ -61,16 +61,16 @@ export default function HomePage() {
           </div>
           {/* Card 3 */}
           <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <span className="text-xl font-semibold mb-4">ขยะที่เก็บได้</span>
+            <span className="text-xl font-semibold text-slate-800 mb-4">ขยะที่เก็บได้</span>
             <div className="flex items-center justify-center w-32 h-32 rounded-full border-2 border-gray-300">
-              <span className="text-4xl font-bold">36</span>
+              <span className="text-4xl font-bold text-slate-900">36</span>
             </div>
           </div>
           {/* Card 4 */}
           <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <span className="text-xl font-semibold mb-4">ขยะที่เก็บไม่ได้</span>
+            <span className="text-xl font-semibold text-slate-800 mb-4">ขยะที่เก็บไม่ได้</span>
             <div className="flex items-center justify-center w-32 h-32 rounded-full border-2 border-gray-300">
-              <span className="text-4xl font-bold">14</span>
+              <span className="text-4xl font-bold text-slate-900">14</span>
             </div>
           </div>
         </div>

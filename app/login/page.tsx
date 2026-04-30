@@ -14,7 +14,7 @@ export default function Home() {
 
   const handleSignUp = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push("/register");
+    router.push("/Register");
   };
 
   return (

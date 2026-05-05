@@ -1,80 +1,83 @@
 "use client";
 
-
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FaHome, FaHistory, FaUser, FaSignOutAlt, FaCamera } from "react-icons/fa";
+import { FaCamera } from "react-icons/fa";
+import DashboardShell from "../components/DashboardShell";
 import LoginImage from "@/assets/images/Login.png";
 import RegisterImage from "@/assets/images/register.png";
 
 export default function HomePage() {
-  const router = useRouter();
-  const handleLogout = () => {
-    router.push("/login");
-  };
   return (
-    <div className="min-h-screen w-full bg-[#f2f6fb] flex">
-      {/* Sidebar */}
-      <aside className="w-64 bg-sky-400 flex flex-col items-center py-8 px-4 min-h-screen">
-        <nav className="flex flex-col gap-4 w-full">
-          <Link href="/home">
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-sky-300 text-white font-semibold text-lg shadow-md">
-              <FaHome size={24} /> Home
+    <DashboardShell
+      pageTitle="หน้าแรก"
+      pageDescription="สรุปข้อมูลขยะรายวันและภาพรวมการเก็บขยะของคุณในรูปแบบที่ทันสมัยและเป็นเอกภาพ"
+    >
+      <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+        <section className="grid gap-6 sm:grid-cols-2">
+          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-500">วันนี้</p>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">ปริมาณขยะทั้งหมด</h2>
+            <p className="mt-3 text-slate-600">ข้อมูลล่าสุดของขยะที่จัดการในวันนี้</p>
+            <div className="mt-8 flex items-center justify-between gap-4">
+              <div className="rounded-3xl bg-white p-6 text-center shadow-sm">
+                <p className="text-sm text-slate-500">เก็บได้</p>
+                <p className="mt-3 text-4xl font-bold text-slate-900">36</p>
+              </div>
+              <div className="rounded-3xl bg-white p-6 text-center shadow-sm">
+                <p className="text-sm text-slate-500">ไม่ได้เก็บ</p>
+                <p className="mt-3 text-4xl font-bold text-slate-900">14</p>
+              </div>
             </div>
-          </Link>
-          <Link href="/history">
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl text-white font-semibold text-lg hover:bg-sky-300 transition">
-              <FaHistory size={24} /> History
-            </div>
-          </Link>
-          <Link href="/profile">
-            <div className="flex items-center gap-3 px-4 py-3 rounded-xl text-white font-semibold text-lg hover:bg-sky-300 transition">
-              <FaUser size={24} /> Profile
-            </div>
-          </Link>
-        </nav>
-        <div className="grow" />
-        <button
-          className="flex items-center gap-2 px-6 py-3 mt-8 rounded-xl bg-white text-red-500 font-semibold text-lg shadow-md border border-sky-200 hover:bg-red-50 transition"
-          onClick={handleLogout}
-        >
-          <FaSignOutAlt size={22} /> <span>Logout</span>
-        </button>
-      </aside>
+          </div>
 
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center p-8">
-        <div className="grid grid-cols-2 gap-8 max-w-3xl w-full">
-          {/* Card 1 */}
-          <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <span className="text-xl font-semibold text-slate-800 mb-4">ปริมาณขยะของวันนี้</span>
-            <div className="flex items-center justify-center w-32 h-32 rounded-full border-2 border-gray-300 mb-4">
-              <span className="text-4xl font-bold text-slate-900">50</span>
+          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-sky-500">ภาพรวม</p>
+                <h2 className="mt-3 text-3xl font-semibold text-slate-900">สถิติโดยรวม</h2>
+              </div>
+              <div className="rounded-3xl bg-sky-500 p-4 text-white shadow-md">
+                <FaCamera size={26} />
+              </div>
             </div>
-            <Image src={LoginImage} alt="login" width={60} height={60} className="rounded-full" />
-          </div>
-          {/* Card 2 (Camera) */}
-          <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <Image src={RegisterImage} alt="register" width={60} height={60} className="rounded-full mb-4" />
-            <FaCamera size={48} className="text-gray-400" />
-          </div>
-          {/* Card 3 */}
-          <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <span className="text-xl font-semibold text-slate-800 mb-4">ขยะที่เก็บได้</span>
-            <div className="flex items-center justify-center w-32 h-32 rounded-full border-2 border-gray-300">
-              <span className="text-4xl font-bold text-slate-900">36</span>
+            <div className="mt-8 grid gap-4">
+              <div className="rounded-3xl bg-white p-5 shadow-sm">
+                <p className="text-sm text-slate-500">ขยะวันนี้</p>
+                <p className="mt-2 text-3xl font-bold text-slate-900">50 ชิ้น</p>
+              </div>
+              <div className="rounded-3xl bg-white p-5 shadow-sm">
+                <p className="text-sm text-slate-500">เป้าหมายการเก็บ</p>
+                <p className="mt-2 text-3xl font-bold text-slate-900">70%</p>
+              </div>
             </div>
           </div>
-          {/* Card 4 */}
-          <div className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-8 min-h-55">
-            <span className="text-xl font-semibold text-slate-800 mb-4">ขยะที่เก็บไม่ได้</span>
-            <div className="flex items-center justify-center w-32 h-32 rounded-full border-2 border-gray-300">
-              <span className="text-4xl font-bold text-slate-900">14</span>
+        </section>
+
+        <section className="grid gap-6">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-500">สรุปด่วน</p>
+            <div className="mt-6 flex items-center justify-center gap-6 rounded-3xl bg-slate-100 p-8">
+              <div className="text-center">
+                <p className="text-sm text-slate-500">ขยะที่เก็บได้</p>
+                <p className="mt-3 text-5xl font-bold text-slate-900">36</p>
+              </div>
+              <div className="h-24 w-24 rounded-full border-4 border-sky-300 bg-white flex items-center justify-center">
+                <Image src={LoginImage} alt="Summary" width={56} height={56} />
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
+
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-500">เพิ่มเติม</p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 rounded-3xl bg-slate-100 p-8">
+              <div className="h-24 w-24 rounded-full bg-white p-4 shadow-sm">
+                <Image src={RegisterImage} alt="Camera" width={56} height={56} />
+              </div>
+              <p className="text-center text-slate-600">ระบบพร้อมบันทึกข้อมูลขยะและจัดการรายงานอย่างเป็นระบบ</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </DashboardShell>
   );
 }

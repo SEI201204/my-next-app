@@ -2,11 +2,44 @@
 
 import Image from "next/image";
 import { FaCamera } from "react-icons/fa";
+import { useState, useEffect } from "react";
 import DashboardShell from "../components/DashboardShell";
 import LoginImage from "@/assets/images/Login.png";
 import RegisterImage from "@/assets/images/register.png";
+import { useHomeData } from "@/lib/hooks";
 
 export default function HomePage() {
+  const { data, loading } = useHomeData();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || loading) {
+    return (
+      <DashboardShell
+        pageTitle="หน้าแรก"
+        pageDescription="กำลังโหลดข้อมูล..."
+      >
+        <div className="flex items-center justify-center py-12">
+          <p className="text-slate-500">กำลังโหลด...</p>
+        </div>
+      </DashboardShell>
+    );
+  }
+
+  const dailySummary = data?.dailySummary || {
+    collected_count: 0,
+    missed_count: 0,
+    total_count: 0,
+  };
+  const trashStats = data?.trashStats || {
+    correct: 0,
+    incorrect: 0,
+    percentage: 0,
+  };
+
   return (
     <DashboardShell
       pageTitle="หน้าแรก"
@@ -21,11 +54,11 @@ export default function HomePage() {
             <div className="mt-8 flex items-center justify-between gap-4">
               <div className="rounded-3xl bg-white p-6 text-center shadow-sm">
                 <p className="text-sm text-slate-500">เก็บได้</p>
-                <p className="mt-3 text-4xl font-bold text-slate-900">36</p>
+                <p className="mt-3 text-4xl font-bold text-slate-900">{dailySummary.collected_count}</p>
               </div>
               <div className="rounded-3xl bg-white p-6 text-center shadow-sm">
                 <p className="text-sm text-slate-500">ไม่ได้เก็บ</p>
-                <p className="mt-3 text-4xl font-bold text-slate-900">14</p>
+                <p className="mt-3 text-4xl font-bold text-slate-900">{dailySummary.missed_count}</p>
               </div>
             </div>
           </div>
@@ -43,11 +76,11 @@ export default function HomePage() {
             <div className="mt-8 grid gap-4">
               <div className="rounded-3xl bg-white p-5 shadow-sm">
                 <p className="text-sm text-slate-500">ขยะวันนี้</p>
-                <p className="mt-2 text-3xl font-bold text-slate-900">50 ชิ้น</p>
+                <p className="mt-2 text-3xl font-bold text-slate-900">{dailySummary.total_count} ชิ้น</p>
               </div>
               <div className="rounded-3xl bg-white p-5 shadow-sm">
                 <p className="text-sm text-slate-500">เป้าหมายการเก็บ</p>
-                <p className="mt-2 text-3xl font-bold text-slate-900">70%</p>
+                <p className="mt-2 text-3xl font-bold text-slate-900">{trashStats.percentage}%</p>
               </div>
             </div>
           </div>
@@ -58,8 +91,8 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-500">สรุปด่วน</p>
             <div className="mt-6 flex items-center justify-center gap-6 rounded-3xl bg-slate-100 p-8">
               <div className="text-center">
-                <p className="text-sm text-slate-500">ขยะที่เก็บได้</p>
-                <p className="mt-3 text-5xl font-bold text-slate-900">36</p>
+                <p className="text-sm text-slate-500">เก็บเก่งสำเร็จ</p>
+                <p className="mt-3 text-5xl font-bold text-slate-900">{trashStats.correct}</p>
               </div>
               <div className="h-24 w-24 rounded-full border-4 border-sky-300 bg-white flex items-center justify-center">
                 <Image src={LoginImage} alt="Summary" width={56} height={56} />

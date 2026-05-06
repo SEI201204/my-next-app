@@ -1,8 +1,33 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import DashboardShell from "../components/DashboardShell";
+import { useHistoryData } from "@/lib/hooks";
 
 const HistoryPage = () => {
+  const { data, loading } = useHistoryData();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || loading) {
+    return (
+      <DashboardShell
+        pageTitle="ประวัติ"
+        pageDescription="กำลังโหลดข้อมูล..."
+      >
+        <div className="flex items-center justify-center py-12">
+          <p className="text-slate-500">กำลังโหลด...</p>
+        </div>
+      </DashboardShell>
+    );
+  }
+
+  const weeklySummary = data?.weeklySummary || {};
+  const timeline = data?.timeline || [];
+
   return (
     <DashboardShell
       pageTitle="ประวัติ"
